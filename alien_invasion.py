@@ -33,6 +33,7 @@ class AlienInvasion:
             self.ship.update()
             self.bullets.update()
             self._update_bullets()
+            self._update_aliens()
 
             for bullet in self.bullets.copy():
                 if bullet.rect.bottom <= 0:
@@ -122,6 +123,11 @@ class AlienInvasion:
         alien.rect.x = alien.x
         alien.rect.y = alien_height + 2 * alien.rect.height * row_number
         self.aliens.add(alien)
+
+    def _update_aliens(self):
+        """Update the positions of all aliens in the fleet."""
+        self.aliens.update()
+
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
